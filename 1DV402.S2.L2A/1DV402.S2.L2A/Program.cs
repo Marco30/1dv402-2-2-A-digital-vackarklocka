@@ -10,6 +10,22 @@ namespace _1DV402.S2.L2A
     {
         static void Main(string[] args)
         {
+            string HorizontalLine = "\n-------------------";
+            Console.WriteLine(HorizontalLine);
         }
+
+        private static void Run(AlarmClock ac, int minutes)
+        {
+        }
+
+        private static void ViewErrorMessage(string message)
+        {
+        }
+
+        private static void ViewTestHeader(string header)
+        {
+
+        }
+
     }
 }
