@@ -48,29 +48,52 @@ namespace _1DV402.S2.L2A
 
         public int Hour
         {
+            get { return _hour; }
+            set
+            {
+
+                if (value > 23)
+                {
+                    throw new ArgumentException("Timmen är inte i intervallet 0-23.");
+                }
+                else { _hour = value; }
+            }
 
         }
 
 
 
         public int Minute
-        { 
+        {
+            get { return _minute; }
+            set
+            {
+
+                if (value > 59)
+                {
+                    throw new ArgumentException("Minuten är inte i intervallet 0-59.");
+                }
+                else { _minute = value; }
+            }
 
         }
 
         public AlarmClock()
+            : this(0, 0)
         {
-
         }
         public AlarmClock(int hour, int minute)
+            : this(hour, minute, 0, 0)
         {
-
         }
-
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
-
+            Hour = hour;
+            Minute = minute;
+            AlarmHour = alarmHour;
+            AlarmMinute = alarmMinute;
         }
+
 
         public override string ToString()
         {
