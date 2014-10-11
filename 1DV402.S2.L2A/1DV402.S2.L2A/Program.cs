@@ -8,25 +8,41 @@ namespace _1DV402.S2.L2A
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args)// här testar vi klockan och des funktioner    
         {
             AlarmClock alarmClock = new AlarmClock();
+            
             int minutes;
-
             string HorizontalLine = "\n-------------------";
+            
             Console.WriteLine(HorizontalLine);
+            Console.WriteLine("Test 1");
+            Console.WriteLine("Test av stadardkonstruktorn");
 
-            Console.WriteLine("1 test");
-            Console.WriteLine("Test av stadardkonstruktorn.");
             Console.WriteLine(alarmClock.ToString());
-            Console.WriteLine("");
-          
-            Console.WriteLine("2 test");
-            Console.WriteLine("Test av konstruktorn med två parametrar.");
+            Console.WriteLine();
+
+            Console.WriteLine(HorizontalLine);
+            Console.WriteLine("1 test");
+            Console.WriteLine("Test av konstruktorn med 2 parametrar");
+
             alarmClock.Hour = 9;
             alarmClock.Minute = 42;
+
             Console.WriteLine(alarmClock.ToString());
-            Console.WriteLine("");
+            Console.WriteLine();
+
+            Console.WriteLine(HorizontalLine);
+            Console.WriteLine("3 test");
+            Console.WriteLine("Test av konstruktorn med 4 parametrar");
+
+            alarmClock.Hour = 9;
+            alarmClock.Minute = 42;
+            alarmClock.AlarmHour = 7;
+            alarmClock.AlarmMinute = 35;
+
+            Console.WriteLine(alarmClock.ToString());
+            Console.WriteLine();
         }
 
         private static void Run(AlarmClock ac, int minutes)

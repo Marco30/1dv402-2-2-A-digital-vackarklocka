@@ -17,7 +17,10 @@ namespace _1DV402.S2.L2A
         public int AlarmHour// i den här metoden kontrolleras att _alarmHour är ett nummer mellan 0-23 och sedan till delsas den ett värde 
         {
 
-            get { return _alarmHour; }// när man vill ha ett värde så tar man get  
+            get 
+            { 
+                return _alarmHour; 
+            }// när man vill ha ett värde så tar man get  
 
             set// när man vill ge ett värde så tar man set 
             {
@@ -34,7 +37,11 @@ namespace _1DV402.S2.L2A
 
          public int AlarmMinute
         {
-            get { return _alarmMinute; }
+            get 
+            { 
+                return _alarmMinute; 
+            }
+
             set
             {
                 if (value < 0 || value > 59)
@@ -48,7 +55,11 @@ namespace _1DV402.S2.L2A
 
         public int Hour
         {
-            get { return _hour; }
+            get 
+            { 
+                return _hour; 
+            }
+
             set
             {
 
@@ -65,7 +76,11 @@ namespace _1DV402.S2.L2A
 
         public int Minute
         {
-            get { return _minute; }
+            get 
+            { 
+                return _minute; 
+            }
+
             set
             {
 
@@ -82,29 +97,43 @@ namespace _1DV402.S2.L2A
         public AlarmClock()  //anropar konstruktorn som har  2 parametrar 
             : this(0, 0)
         {
+
         }
 
     
         public AlarmClock(int hour, int minute)  //anropar konstruktorn som har  4 parametrar 
             : this(hour, minute, 0, 0)
         {
+
         }
 
-        public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)// här till delas variablerna värden 
+        public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)// i den här konstruktorn till delas variablerna värden 
         {
-            Hour = hour;
-            Minute = minute;
-            AlarmHour = alarmHour;
-            AlarmMinute = alarmMinute;
+            hour = hour;
+            minute = minute;
+            _alarmHour = alarmHour;
+            _alarmMinute = alarmMinute;
         }
 
 
-        public override string ToString()
+        public override string ToString()//metod som returnerar en sträng som representerande värdet av en instans av klassen AlarmClock, det här skriver ut tiden   
         {
-            return (String.Format("{0}:{1:00} ({2}:{3:00})", Hour, Minute, AlarmHour, AlarmMinute));
+            Console.ResetColor();
+
+            if (_alarmHour == 0 && _alarmMinute == 0)// om både variablerna är lika med 0 körs följande if satsen  
+            {
+                return String.Format("{0,4}:{1:00} <{2}:{3:00}>", _hour, _minute, _alarmHour, _alarmMinute);
+            }
+            if (_hour == _alarmHour && _minute == _alarmMinute)//om både variablerna är lika med alarm variablerna så ska larmet gå och den här if satsen köras   
+            {
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
+                return String.Format("{0,3}:{1:00} <{2}:{3:00}> BEEP!!! BEEP!!!, up och hopa", _hour, _minute, _alarmHour, _alarmMinute);
+            }
+            return String.Format("{0,4}:{1:00} <{2}:{3:00}>", _hour, _minute, _alarmHour, _alarmMinute);// visar vanlig tid om ingen av de if satserna här ovan uppfylls 
         }
 
-        public bool TickTock()
+        public bool TickTock()// det är här själva tiden går i programmet, den kontrolerar också alarm tiden  
         {
            
             if (Minute == 59)
