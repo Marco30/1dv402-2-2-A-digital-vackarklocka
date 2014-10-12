@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1DV402.S2.L2A
+namespace _1DV402.S2.L2A// Marco villegas
 {
     class AlarmClock
     {
@@ -26,7 +26,7 @@ namespace _1DV402.S2.L2A
             {
                 if (value < 0 || value > 23)// if satsen kontrollerar om det till delade värdet är mellan 0 - 23, vilket motsvarar en tid på dygnet 
                 {
-                    throw new ArgumentException("AlarmTimmen är inte i intervallet 0-23.");// är den inte ett värde mellan 0-23 så kastas ArgumentExceptio undantaget 
+                    throw new ArgumentException("AlarmTimmen är inte i intervallet 0-23.\n");// är den inte ett värde mellan 0-23 så kastas ArgumentExceptio undantaget 
                 }
 
                 else 
@@ -50,7 +50,7 @@ namespace _1DV402.S2.L2A
             {
                 if (value < 0 || value > 59)
                 {
-                    throw new ArgumentException("AlarmmMinuten är inte i intervallet 0-59.");
+                    throw new ArgumentException("AlarmmMinuten är inte i intervallet 0-59.\n");
                 }
 
                 else 
@@ -74,7 +74,7 @@ namespace _1DV402.S2.L2A
 
                 if (value < 0 || value > 23)
                 {
-                    throw new ArgumentException("Timmen är inte i intervallet 0-23.");
+                    throw new ArgumentException("Timmen är inte i intervallet 0-23.\n");
                 }
                 else 
                 { 
@@ -99,7 +99,7 @@ namespace _1DV402.S2.L2A
 
                 if (value < 0 || value > 59)
                 {
-                    throw new ArgumentException("Minuten är inte i intervallet 0-59.");
+                    throw new ArgumentException("Minuten är inte i intervallet 0-59.\n");
                 }
                 else 
                 { 
