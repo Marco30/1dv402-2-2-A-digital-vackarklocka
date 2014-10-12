@@ -26,9 +26,13 @@ namespace _1DV402.S2.L2A
             {
                 if (value < 0 || value > 23)// if satsen kontrollerar om det till delade värdet är mellan 0 - 23, vilket motsvarar en tid på dygnet 
                 {
-                    throw new ArgumentException("Alarmtimmen är inte i intervallet 0-23.");// är den inte ett värde mellan 0-23 så kastas ArgumentExceptio undantaget 
+                    throw new ArgumentException("AlarmTimmen är inte i intervallet 0-23.");// är den inte ett värde mellan 0-23 så kastas ArgumentExceptio undantaget 
                 }
-                else { _alarmHour = value; }// värdet i Value ges till _alarmHour 
+
+                else 
+                { 
+                    _alarmHour = value; 
+                }// värdet i Value ges till _alarmHour 
             }
 
         }
@@ -46,9 +50,14 @@ namespace _1DV402.S2.L2A
             {
                 if (value < 0 || value > 59)
                 {
-                    throw new ArgumentException("Alarmminuten är inte i intervallet 0-59.");
+                    throw new ArgumentException("AlarmmMinuten är inte i intervallet 0-59.");
                 }
-                else { _alarmMinute = value; }
+
+                else 
+                { 
+                    _alarmMinute = value; 
+                }
+
             }
 
         }
@@ -67,7 +76,11 @@ namespace _1DV402.S2.L2A
                 {
                     throw new ArgumentException("Timmen är inte i intervallet 0-23.");
                 }
-                else { _hour = value; }
+                else 
+                { 
+                    _hour = value;
+                }
+
             }
 
         }
@@ -88,7 +101,11 @@ namespace _1DV402.S2.L2A
                 {
                     throw new ArgumentException("Minuten är inte i intervallet 0-59.");
                 }
-                else { _minute = value; }
+                else 
+                { 
+                    _minute = value; 
+                }
+
             }
 
         }
@@ -109,8 +126,8 @@ namespace _1DV402.S2.L2A
 
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)// i den här konstruktorn till delas variablerna värden 
         {
-            hour = hour;
-            minute = minute;
+            _hour = hour;
+            _minute = minute;
             _alarmHour = alarmHour;
             _alarmMinute = alarmMinute;
         }
@@ -119,18 +136,23 @@ namespace _1DV402.S2.L2A
         public override string ToString()//metod som returnerar en sträng som representerande värdet av en instans av klassen AlarmClock, det här skriver ut tiden   
         {
             Console.ResetColor();
+           
 
             if (_alarmHour == 0 && _alarmMinute == 0)// om både variablerna är lika med 0 körs följande if satsen  
             {
                 return String.Format("{0,4}:{1:00} <{2}:{3:00}>", _hour, _minute, _alarmHour, _alarmMinute);
             }
+
             if (_hour == _alarmHour && _minute == _alarmMinute)//om både variablerna är lika med alarm variablerna så ska larmet gå och den här if satsen köras   
             {
                 Console.BackgroundColor = ConsoleColor.Blue;
                 Console.ForegroundColor = ConsoleColor.White;
                 return String.Format("{0,3}:{1:00} <{2}:{3:00}> BEEP!!! BEEP!!!, up och hopa", _hour, _minute, _alarmHour, _alarmMinute);
             }
+            else
+            { 
             return String.Format("{0,4}:{1:00} <{2}:{3:00}>", _hour, _minute, _alarmHour, _alarmMinute);// visar vanlig tid om ingen av de if satserna här ovan uppfylls 
+            }
         }
 
         public bool TickTock()// det är här själva tiden går i programmet, den kontrolerar också alarm tiden  
